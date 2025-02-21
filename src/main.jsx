@@ -11,3 +11,14 @@ createRoot(document.getElementById('root')).render(
     </ThemeContextProvider>
   </StrictMode>,
 )
+
+
+//git
+//git cli
+
+//gh auth login
+
+//add repo in github
+// 1) git add .
+// 2) git commit -m "git commands added"
+// 3) git push origin master 
