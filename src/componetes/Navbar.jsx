@@ -33,7 +33,7 @@ const Navbar = () => {
       {/* <div className={"dark"}> */}
         <div className="logo">
           <a  className="text-todo">
-            TODO
+            TODO LIST APP
             <span>
               <FaCheckSquare size={23}  />
             </span>
