@@ -22,7 +22,12 @@
     margin: auto;
   }
 body{
-  font-family: Poppins, sans-serif;
+  font-family: 'Poppins', 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+.cdn-icon {
+  margin-left: 0.35rem;
+  color: gold;
 }
 .container{
     padding:50px;

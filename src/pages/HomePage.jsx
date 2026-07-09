@@ -102,8 +102,8 @@ const HomePage = () => {
           <div className="home-card">
             <div className="home-text">
               My Todos
-              <span className="text-icon">
-                <FaCheckSquare />
+              <span className="text-icon" aria-hidden="true">
+                <FaCheckSquare className="cdn-icon" />
               </span>
             </div>
             <form action="" onSubmit={isEdit ? handleUpdate : addButton}>
