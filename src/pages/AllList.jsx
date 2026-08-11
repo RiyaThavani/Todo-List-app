@@ -26,6 +26,7 @@ const AllList = () => {
         "Content-type": "application/json; charset=UTF-8", //for data type-JSON forment
       },
     });
+    console.log({ response });
     const data = await response.json();
     getAPIData();
     console.log({ data, response });
@@ -40,6 +41,7 @@ const AllList = () => {
     const data = await response.json();
     console.log({ data });
     setAllData(data);
+    console.log("data",allData)
     setIsLoading(false);
   };
 

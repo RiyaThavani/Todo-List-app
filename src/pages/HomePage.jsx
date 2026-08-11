@@ -94,6 +94,7 @@ const HomePage = () => {
 
   const handleMore = (id) => {
     navigate(`/todo/${id}`);
+    console.log("id",id)
   };
   return (
     <>

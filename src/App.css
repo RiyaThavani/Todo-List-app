@@ -29,6 +29,11 @@ body{
   margin-left: 0.35rem;
   color: gold;
 }
+.Back-Icon{
+  /* color: gold; */
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
 .container{
     padding:50px;
     background-color: #393939;
@@ -417,11 +422,39 @@ width: 100%;
   padding: 7px 25px;
   transition: all .3s;
 }
+.back-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 10px 18px;
+  border: 2px solid gold;
+  border-radius: 8px;
+  background-color: gold;
+  color: #1f1f1f;
+  font-weight:200;
+  cursor: pointer;
+}
+.back-btn:hover{
+  background-color: #fff;
+  color: gold;
+}
+.todo-detail-card{
+  width: 100%;
+  min-height: 240px;
+}
+.todo-detail-info {
+  margin-top: 16px;
+  color: #333;
+}
+.todo-detail-info p {
+  margin: 8px 0;
+}
 /* cards */
 .card-main{
     display: flex;
   flex-wrap: wrap;
-  gap:20px;
+  gap:5px;
   border: 20px;
   margin-top: 20px;
   }
@@ -440,7 +473,7 @@ width: 100%;
     border-radius: 5px;
     justify-content: space-between;
     margin: 12px;
-    padding: 25px;
+    padding: 20px;
     width: 228px;
     background-color: #fff2aa;
   }
