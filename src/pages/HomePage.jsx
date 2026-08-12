@@ -82,14 +82,12 @@ const HomePage = () => {
   };
   const handleUpdate = (event) => {
     event.preventDefault();
-    let index = allData.findIndex((item) => item.id === dataToEdit.id);
-    allData[index] = { title: titleData.title, id: dataToEdit.id };
-    console.log({ allData });
-    setAllData(allData);
-    localStorage.setItem("AddData", JSON.stringify(allData));
+    const updatedData = allData.map((item) =>
+      item.id === dataToEdit.id ? { ...item, title: titleData.title } : item
+    );
+    setAllData(updatedData);
     setTitle({ title: "", id: uuidv4() });
     setIsEdit(false);
-    console.log(index, titleData);
   };
 
   const handleMore = (id) => {
@@ -124,7 +122,7 @@ const HomePage = () => {
                 allData.map((item) => {
                   return (
                     <Cards
-                      key={item.title}
+                      key={item.id}
                       id={item.id}
                       complete={item.complete}
                       title={item.title}
@@ -138,9 +136,8 @@ const HomePage = () => {
                 })
               ) : (
                 <p
-                  className={`${
-                    theme === "dark" ? "card-pera" : "card-pera-light"
-                  }`}
+                  className={`${theme === "dark" ? "card-pera" : "card-pera-light"
+                    }`}
                 >
                   No task added.
                 </p>

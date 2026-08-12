@@ -7,20 +7,20 @@ import { ThemeContext } from "../context/theme-context";
 import Alertbox from "./Alertbox";
 const Navbar = () => {
   const navigate = useNavigate();
-  const {theme, toggleTheme} = useContext(ThemeContext)
-  const[showLogout,setLogout] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext)
+  const [showLogout, setLogout] = useState(false);
   const handleLogout = (event) => {
     event.preventDefault();
     localStorage.removeItem("loginData");
     setLogout(true);
 
-    
+
   };
-  const handlelogoutconfirm=(event) =>{
+  const handlelogoutconfirm = (event) => {
     event.preventDefault();
     navigate("/Login");
   }
-  const handlelogoutcancle=(event)=>{
+  const handlelogoutcancle = (event) => {
     event.preventDefault();
     setLogout(false);
   }
@@ -28,14 +28,14 @@ const Navbar = () => {
 
   return (
     <>
-      {showLogout && <Alertbox  handlelogoutconfirm={handlelogoutconfirm} handlelogoutcancle={handlelogoutcancle}/>}
-      <div className="navbar">
-      {/* <div className={"dark"}> */}
+      {showLogout && <Alertbox handlelogoutconfirm={handlelogoutconfirm} handlelogoutcancle={handlelogoutcancle} />}
+      <div className={theme === "dark" ? "navbar" : "navbar-light"}>
+        {/* <div className={"dark"}> */}
         <div className="logo">
-          <a  className="text-todo">
-            TODO LIST APP 
+          <a className="text-todo">
+            TODO LIST APP
             <span>
-              <FaCheckSquare size={23}  />
+              <FaCheckSquare size={23} />
             </span>
           </a>
         </div>
@@ -43,31 +43,36 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/"
-              className={({ isActive }) => (isActive ? "link-active" : "link-line")}>
+              className={({ isActive }) => (isActive ? (theme === "dark" ? "link-active" : "link-active-light") : (theme === "dark" ? "link-line" : "link-line-light"))}>
               Home
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/about"  className={({ isActive }) => (isActive ? "link-active" : "link-line")}>
+            <NavLink to="/about" className={({ isActive }) => (isActive ? (theme === "dark" ? "link-active" : "link-active-light") : (theme === "dark" ? "link-line" : "link-line-light"))}>
               About
             </NavLink>
           </li>
           <li>
-            <NavLink to="/List"  className={({ isActive }) => (isActive ? "link-active" : "link-line")}>
+            <NavLink to="/List" className={({ isActive }) => (isActive ? (theme === "dark" ? "link-active" : "link-active-light") : (theme === "dark" ? "link-line" : "link-line-light"))}>
               All Todos
             </NavLink>
           </li>
         </ul>
         <div className="logout">
-          <div onClick={toggleTheme}>
+          <button
+            type="button"
+            className={theme === "dark" ? "theme-toggle" : "theme-toggle-light"}
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+          >
             {theme === "dark" ? (
-              <BsCloudSunFill size={23} className="light" />
+              <BsCloudSunFill size={20} />
             ) : (
-              <BsFillMoonStarsFill size={23} className="light" />
+              <BsFillMoonStarsFill size={20} />
             )}
-          </div>
-          <button type="button" className="btn-red" onClick={handleLogout}>
+          </button>
+          <button type="button" className={theme === "dark" ? "btn-red" : "btn-red-light"} onClick={handleLogout}>
             Logout
           </button>
         </div>
