@@ -136,7 +136,7 @@ const HomePage = () => {
                 })
               ) : (
                 <p
-                  className={`${theme === "dark" ? "card-pera" : "card-pera-light"
+                  className={`${theme === "dark" ? "card-pera" : ""
                     }`}
                 >
                   No task added.
