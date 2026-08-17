@@ -106,8 +106,8 @@ const Navbar = () => {
                     ? "link-active"
                     : "link-active-light"
                   : theme === "dark"
-                  ? "link-line"
-                  : "link-line-light"
+                    ? "link-line"
+                    : "link-line-light"
               }
             >
               Home
@@ -122,8 +122,8 @@ const Navbar = () => {
                     ? "link-active"
                     : "link-active-light"
                   : theme === "dark"
-                  ? "link-line"
-                  : "link-line-light"
+                    ? "link-line"
+                    : "link-line-light"
               }
             >
               About
@@ -138,8 +138,8 @@ const Navbar = () => {
                     ? "link-active"
                     : "link-active-light"
                   : theme === "dark"
-                  ? "link-line"
-                  : "link-line-light"
+                    ? "link-line"
+                    : "link-line-light"
               }
             >
               All Todos
@@ -196,64 +196,97 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile App View Menu Overlay & Card */}
+      {/* Mobile App View Right-Side Sliding Sidebar Drawer */}
       {isMobileMenuOpen && (
-        <div className="mobile-menu-backdrop" onClick={closeMobileMenu}>
-          <div
-            className={`mobile-menu-card ${theme === "dark" ? "card-dark" : "card-light"}`}
+        <div className="mobile-drawer-backdrop" onClick={closeMobileMenu}>
+          <aside
+            className={`mobile-sidebar-drawer ${theme === "dark" ? "drawer-dark" : "drawer-light"}`}
             onClick={(e) => e.stopPropagation()}
+            aria-label="Mobile Navigation Sidebar"
           >
-            {/* Header: Brand/Name + Close Button */}
-            <div className="mobile-menu-header">
-              <div className="mobile-menu-title">
-                <span>{displayName}</span>
-                <span className="dot-indicator"></span>
+            {/* Top Section: Header & Content */}
+            <div className="drawer-top-section">
+              {/* Drawer Header: Title + Close Button */}
+              <div className="mobile-drawer-header">
+                <div className="mobile-drawer-title">
+                  <span>{displayName}</span>
+                  <span className="dot-indicator"></span>
+                </div>
+                <button
+                  type="button"
+                  className="mobile-close-btn"
+                  onClick={closeMobileMenu}
+                  aria-label="Close navigation sidebar"
+                >
+                  <FaTimes size={18} />
+                </button>
               </div>
-              <button
-                type="button"
-                className="mobile-close-btn"
-                onClick={closeMobileMenu}
-                aria-label="Close menu"
-              >
-                <FaTimes size={18} />
-              </button>
+
+              {/* Theme Toggle Row inside the Drawer */}
+              <div className="drawer-theme-box">
+                <div className="drawer-theme-info">
+                  <span className="drawer-theme-icon">
+                    {theme === "dark" ? (
+                      <BsCloudSunFill size={18} />
+                    ) : (
+                      <BsFillMoonStarsFill size={18} />
+                    )}
+                  </span>
+                  <span className="drawer-theme-label">
+                    {theme === "dark" ? "Dark Mode" : "Light Mode"}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  className="drawer-theme-toggle-btn"
+                  onClick={toggleTheme}
+                  aria-label="Switch Theme"
+                >
+                  {theme === "dark" ? (
+                    <BsCloudSunFill size={16} />
+                  ) : (
+                    <BsFillMoonStarsFill size={16} />
+                  )}
+                  <span>Switch</span>
+                </button>
+              </div>
+
+              {/* Navigation Links with Horizontal Dividers */}
+              <div className="mobile-drawer-links">
+                <NavLink
+                  to="/"
+                  onClick={closeMobileMenu}
+                  className={({ isActive }) =>
+                    `mobile-drawer-item ${isActive ? "active" : ""}`
+                  }
+                >
+                  <span>Home</span>
+                </NavLink>
+
+                <NavLink
+                  to="/about"
+                  onClick={closeMobileMenu}
+                  className={({ isActive }) =>
+                    `mobile-drawer-item ${isActive ? "active" : ""}`
+                  }
+                >
+                  <span>About</span>
+                </NavLink>
+
+                <NavLink
+                  to="/List"
+                  onClick={closeMobileMenu}
+                  className={({ isActive }) =>
+                    `mobile-drawer-item ${isActive ? "active" : ""}`
+                  }
+                >
+                  <span>All Todos</span>
+                </NavLink>
+              </div>
             </div>
 
-            {/* Navigation Links with Dividers */}
-            <div className="mobile-menu-links">
-              <NavLink
-                to="/"
-                onClick={closeMobileMenu}
-                className={({ isActive }) =>
-                  `mobile-nav-item ${isActive ? "active" : ""}`
-                }
-              >
-                <span>Home</span>
-              </NavLink>
-
-              <NavLink
-                to="/about"
-                onClick={closeMobileMenu}
-                className={({ isActive }) =>
-                  `mobile-nav-item ${isActive ? "active" : ""}`
-                }
-              >
-                <span>About</span>
-              </NavLink>
-
-              <NavLink
-                to="/List"
-                onClick={closeMobileMenu}
-                className={({ isActive }) =>
-                  `mobile-nav-item ${isActive ? "active" : ""}`
-                }
-              >
-                <span>All Todos</span>
-              </NavLink>
-            </div>
-
-            {/* Bottom Action Section (Pill Button) */}
-            <div className="mobile-menu-footer">
+            {/* Bottom Section: Action Button (Pill Button) */}
+            <div className="mobile-drawer-footer">
               <button
                 type="button"
                 className="mobile-pill-btn"
@@ -262,7 +295,7 @@ const Navbar = () => {
                 Logout
               </button>
             </div>
-          </div>
+          </aside>
         </div>
       )}
     </>
