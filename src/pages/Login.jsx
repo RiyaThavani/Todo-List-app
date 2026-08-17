@@ -136,27 +136,33 @@ const Login = () => {
               <p className="login-error">{error.emailaddress}</p>
             </div>
             <div className="inputtext">
-            <label htmlFor="">Password:</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              className={`${error.password ? "input-error" : "input"}`}
-              onChange={inputChangeHandler}
-              onBlur={inputBlurHandler}
-              value={formData.password}
-              placeholder="Your Password"
-            />
-            <span className="eye" onClick={togglePasswrdvisible}>
-                <i className="icon-e">
-                  {" "}
-                  {showPassword ? (
-                    <IoEye size={25} />
-                  ) : (
-                    <IoMdEyeOff size={25} />
-                  )}
-                </i>
-              </span>
-            {error.password && <p className="login-error">{error.password}</p>}
+              <label htmlFor="">Password:</label>
+              <div className="password-input-wrapper">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  className={`${error.password ? "input-error" : "input"}`}
+                  onChange={inputChangeHandler}
+                  onBlur={inputBlurHandler}
+                  value={formData.password}
+                  placeholder="Your Password"
+                />
+                <button
+                  type="button"
+                  className="eye-btn"
+                  onClick={togglePasswrdvisible}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  <i className="icon-e">
+                    {showPassword ? (
+                      <IoEye size={22} />
+                    ) : (
+                      <IoMdEyeOff size={22} />
+                    )}
+                  </i>
+                </button>
+              </div>
+              {error.password && <p className="login-error">{error.password}</p>}
             </div>
             <div className="login-btn">
               <button
@@ -168,9 +174,8 @@ const Login = () => {
               <button
                 type="submit"
                 onClick={handleClear}
-                className={`${
-                  theme === "dark" ? "btn-clear" : "btn-clear-light"
-                }`}
+                className={`${theme === "dark" ? "btn-clear" : "btn-clear-light"
+                  }`}
               >
                 Clear
               </button>

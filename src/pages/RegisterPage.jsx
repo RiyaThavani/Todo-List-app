@@ -174,26 +174,32 @@ const RegisterPage = () => {
                 htmlFor=""
                 className={`${theme === "dark" ? "lbl" : "lbl2"}`}
               >
-                Passworld:
+                Password:
               </label>
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                className={`${error.password ? "input-error" : "input"}`}
-                value={formData.password}
-                onChange={inputChangeHandler}
-                onBlur={inputBlurHandler}
-              />
-              <span className="eye" onClick={togglePasswrdvisible}>
-                <i className="icon-e">
-                  {" "}
-                  {showPassword ? (
-                    <IoEye size={25} />
-                  ) : (
-                    <IoMdEyeOff size={25} />
-                  )}
-                </i>
-              </span>
+              <div className="password-input-wrapper">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  className={`${error.password ? "input-error" : "input"}`}
+                  value={formData.password}
+                  onChange={inputChangeHandler}
+                  onBlur={inputBlurHandler}
+                />
+                <button
+                  type="button"
+                  className="eye-btn"
+                  onClick={togglePasswrdvisible}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  <i className="icon-e">
+                    {showPassword ? (
+                      <IoEye size={22} />
+                    ) : (
+                      <IoMdEyeOff size={22} />
+                    )}
+                  </i>
+                </button>
+              </div>
               <p className="error">{error.password}</p>
             </div>
 
@@ -202,31 +208,37 @@ const RegisterPage = () => {
                 htmlFor=""
                 className={`${theme === "dark" ? "lbl" : "lbl2"}`}
               >
-                confirm Passworld:
+                Confirm Password:
               </label>
-              <input
-                type={showconfirmPassword ? "text" : "password"}
-                name="confirmpassword"
-                className={`${error.confirmpassword ? "input-error" : "input"}`}
-                value={formData.confirmpassword}
-                onChange={inputChangeHandler}
-                onBlur={inputBlurHandler}
-              />
-              <span className="eye" onClick={toggleconfirmPasswrdvisible}>
-                <i className="icon-e">
-                  {" "}
-                  {showconfirmPassword ? (
-                    <IoEye size={25} />
-                  ) : (
-                    <IoMdEyeOff size={25} />
-                  )}
-                </i>
-              </span>
+              <div className="password-input-wrapper">
+                <input
+                  type={showconfirmPassword ? "text" : "password"}
+                  name="confirmpassword"
+                  className={`${error.confirmpassword ? "input-error" : "input"}`}
+                  value={formData.confirmpassword}
+                  onChange={inputChangeHandler}
+                  onBlur={inputBlurHandler}
+                />
+                <button
+                  type="button"
+                  className="eye-btn"
+                  onClick={toggleconfirmPasswrdvisible}
+                  aria-label={showconfirmPassword ? "Hide password" : "Show password"}
+                >
+                  <i className="icon-e">
+                    {showconfirmPassword ? (
+                      <IoEye size={22} />
+                    ) : (
+                      <IoMdEyeOff size={22} />
+                    )}
+                  </i>
+                </button>
+              </div>
               <p className="error">{error.confirmpassword}</p>
             </div>
 
             <div className="btn-reg">
-              <button type="submit" className= {`${theme === "dark" ? "reg-enable" : "reg-enable-light"}`}>
+              <button type="submit" className={`${theme === "dark" ? "reg-enable" : "reg-enable-light"}`}>
                 Registre
               </button>
               <button
