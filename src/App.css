@@ -16,27 +16,35 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
 
 @keyframes floatSoft {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-4px);
   }
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 16px rgba(99, 102, 241, 0.3);
   }
+
   50% {
     box-shadow: 0 0 28px rgba(168, 85, 247, 0.55);
   }
@@ -47,6 +55,7 @@
     opacity: 0;
     transform: scale(0.96) translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -514,6 +523,7 @@ li {
 .complete-btn {
   background: var(--success-gradient);
 }
+
 .complete-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.45);
@@ -522,6 +532,7 @@ li {
 .edit-btn {
   background: var(--secondary-gradient);
 }
+
 .edit-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.45);
@@ -530,6 +541,7 @@ li {
 .delete-btn {
   background: var(--danger-gradient);
 }
+
 .delete-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(244, 63, 94, 0.45);
@@ -538,6 +550,7 @@ li {
 .more-btn {
   background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
 }
+
 .more-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(71, 85, 105, 0.45);
@@ -764,12 +777,32 @@ input:focus {
   box-shadow: 0 8px 20px rgba(99, 102, 241, 0.12);
 }
 
-.text-title {
+.textbox-content {
   flex: 1 1 auto;
   min-width: 0;
-  word-break: break-word;
-  font-weight: 500;
+  margin-right: 14px;
+}
+
+.text-title {
+  font-weight: 600;
   font-size: 15px;
+  word-break: break-word;
+  color: var(--text-color);
+}
+
+.text-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.textbox-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 .pending {
@@ -1145,6 +1178,7 @@ form .lbl2 {
    ========================================================= */
 
 @media (max-width: 900px) {
+
   .home-content,
   .about,
   .about-light,
@@ -1169,6 +1203,7 @@ form .lbl2 {
 }
 
 @media (max-width: 600px) {
+
   .home-section,
   .about-container,
   .about-container-light,
